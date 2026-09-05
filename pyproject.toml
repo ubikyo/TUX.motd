@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tux_motd"
+description = "TUX Message Of The Day (MOTD)"
+authors = [{ name = "Jérôme Quintard", email = "jquintard@ubikyo.com"}]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = []
+dynamic = ["version"]
+
+[project.scripts]
+tux_motd = "tux_motd.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"tux_motd.i18n" = ["*/LC_MESSAGES/*.mo"]
