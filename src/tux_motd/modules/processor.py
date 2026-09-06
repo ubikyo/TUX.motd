@@ -25,7 +25,7 @@ class Processor(Module):
         Display.header(_n("Processor","Processors", cpu_count))
 
         print(
-            f"   {self.get('icon.info', '')}  "
+            f"   {Display.icon_prefix(self.get('icon.info', ''))}"
             f"{cpu_count} {  _n('Socket', 'Sockets', cpu_count)} / "
             f"{core_count} { _n('Total core', 'Total cores', core_count)}\r"
         )
@@ -42,7 +42,7 @@ class Processor(Module):
         load15 = self.get_loadaverage_color(15, load15, cpu_count)
 
         print(
-            f"   {self.get('icon.graph','')}  "
+            f"   {Display.icon_prefix(self.get('icon.graph',''))}"
             f"{load1}  {load5}  {load15}\r"
         )
 

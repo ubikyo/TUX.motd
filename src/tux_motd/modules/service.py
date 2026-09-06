@@ -49,7 +49,7 @@ class Service(Module):
 
                 print(
                     f"   {theme.Bright}{theme.Highlight}" +
-                    f"{self.get('icon', '󰒔')}  " +
+                    f"{Display.icon_prefix(self.get('icon', '󰒔'))}" +
                     f"{name:30}{theme.Reset}" +
                     f"{run_color}" +
                     col(run_status, None, "Running?") +  

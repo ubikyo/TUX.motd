@@ -27,6 +27,10 @@ class Display:
 
         print(f"\n{theme.Bright}{theme.Title}{title}{theme.Reset}")
 
+    @staticmethod
+    def icon_prefix(icon):
+        return f"{icon}  " if icon else ""
+
     @classmethod
     def label(cls, icon, label, value, indent=0):
         """ 
@@ -45,7 +49,7 @@ class Display:
 
         print(
             f"{' ' * indent}"
-            f"{theme.Bright}{theme.Highlight}{icon}  {label:16}{theme.Reset}"
+            f"{theme.Bright}{theme.Highlight}{cls.icon_prefix(icon)}{label:16}{theme.Reset}"
             f"{value}"
         )
 
@@ -60,9 +64,9 @@ class Display:
                 f"{_('total')}" 
 
         if label == "":
-            print(f"   {icon}  {value}")
+            print(f"   {cls.icon_prefix(icon)}{value}")
         else:
-            print(f"   {icon}  {label:<{width - len(strip_ansi(value))}}{value}")
+            print(f"   {cls.icon_prefix(icon)}{label:<{width - len(strip_ansi(value))}}{value}")
 
     @classmethod
     def bargraph(cls, icon, used, total, warning, critical, width=50):
@@ -82,7 +86,7 @@ class Display:
         symbol = Configuration.get("graph.symbol","─")
 
         print(
-            f"   {icon}  "
+            f"   {cls.icon_prefix(icon)}"
             f"{color}{symbol * used_width}"
             f"{Foreground.get(Configuration.get('graph.track_color'), theme.LightBlack)}"
             f"{theme.Dim}{symbol * unused_width}{theme.Reset}"

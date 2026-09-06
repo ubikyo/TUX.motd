@@ -81,7 +81,7 @@ class User(Module):
 
             for user in users:
                 print(
-                    f"   {theme.Bright}{theme.Highlight}{self.get('icon','')}  " +
+                    f"   {theme.Bright}{theme.Highlight}{Display.icon_prefix(self.get('icon',''))}" +
                     f"{user['user']:16}{theme.Reset}" +
                     f"{user['host']:44}" +
                     col(user["since"].strftime(_("Since_DateFormat")), None, "Since") +

@@ -84,7 +84,7 @@ class Network(Module):
                 for iface, status, ip in ifaces:
                     print(
                         f"   {theme.Bright}{theme.Highlight}"
-                        f"{self.get('icon','󱦂')}  "
+                        f"{Display.icon_prefix(self.get('icon','󱦂'))}"
                         f"{iface:16}{theme.Reset}"
                         f"{ip:44}"
                         f"{status_color}{status}\r"
@@ -124,7 +124,7 @@ class Network(Module):
 
                     print(
                         f"   {theme.Bright}{theme.Highlight}" +
-                        f"{self.get('icon','󱇢')}  " +
+                        f"{Display.icon_prefix(self.get('icon','󱇢'))}" +
                         f"{route['interface']:16}{theme.Reset}" +
                         f"{route['gateway']:44}" +
                         col(metric, None, "Metric") +
@@ -268,7 +268,7 @@ class Network(Module):
                     domain_search = info["dns_domain"] if info["dns_domain"] else _("None")
 
                     print(
-                        f"   {theme.Bright}{theme.Highlight}{self.get('icon','󰖟')}  " +
+                        f"   {theme.Bright}{theme.Highlight}{Display.icon_prefix(self.get('icon','󰖟'))}" +
                         col(interface, 16) +
                         f"{theme.Reset}{default_color}" +
                         col(default, None, "Default") +
@@ -351,7 +351,7 @@ class Network(Module):
 
                     if match:
                         print(
-                            f"   {theme.Bright}{theme.Highlight}{icon}  "
+                            f"   {theme.Bright}{theme.Highlight}{Display.icon_prefix(icon)}"
                             f"{description:38}{theme.Reset}"
                             f"{type:7}"
                             f"{match.group(2):8}"
