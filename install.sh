@@ -79,7 +79,8 @@ clean_module() {
 
 # Création d'un lien symbolique vers /usr/local/bin
 link_module() {
-    if print_dialog $SILENT "Create a symbolic link to tux_motd in /usr/local/bin ?"; then
+    if print_dialog "$SILENT" "Create a symbolic link to tux_motd in /usr/local/bin?" \
+        'Creates a symbolic link to tux_motd in /usr/local/bin, allowing the command to be run directly from anywhere without specifying its full installation path.'; then
         print_msg "OK" "MOTD" "Linking module to /usr/local/bin"
         ln -sf $VENV_DIR/bin/tux_motd /usr/local/bin/tux_motd
     else
