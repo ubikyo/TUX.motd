@@ -23,35 +23,35 @@ install_font() {
 
 # Créé la configuration de base
 init_configuration() {
-    if has_command systemctl; then
-        print_msg "OK" "MOTD" "Configuration initialized"
-        mkdir -p "/etc/TUX/"
+    print_msg "OK" "MOTD" "Configuration initialized"
+    mkdir -p "/etc/TUX/"
 
-        local input_file="$MODULE_DIR/ressources/tux_motd.services"
-        local template_file="$MODULE_DIR/ressources/tux_motd.yaml"
-        local output_file="/etc/TUX/tux_motd.yaml"
+    local input_file="$MODULE_DIR/ressources/tux_motd.services"
+    local template_file="$MODULE_DIR/ressources/tux_motd.yaml"
+    local output_file="/etc/TUX/tux_motd.yaml"
 
-        local services_block=""
+    local services_block=""
 
-        while IFS=";" read -r name svc || [[ -n $name ]]; do
-            [ -z "$svc" ] && continue
+    while IFS=";" read -r name svc || [[ -n $name ]]; do
+        [ -z "$svc" ] && continue
 
-            if systemctl status "${svc}.service" &>/dev/null; then
-                services_block+="        ${name}: ${svc}"$'\n'
-            fi
-        done < "$input_file"
+        if has_command systemctl && systemctl status "${svc}.service" &>/dev/null; then
+            services_block+="        ${name}: ${svc}"$'\n'
+        fi
+    done < "$input_file"
 
-        awk -v block="$services_block" '
-        {
-            if ($0 ~ /\{services\}/) {
-                gsub(/\{services\}/, "")
-                printf "%s", block
-            } else {
-                print
-            }
+    awk -v block="$services_block" -v nerd_fonts="$TUX_NERD_FONTS" '
+    {
+        if ($0 ~ /^nerd_fonts:/) {
+            print "nerd_fonts: " nerd_fonts
+        } else if ($0 ~ /\{services\}/) {
+            gsub(/\{services\}/, "")
+            printf "%s", block
+        } else {
+            print
         }
-        ' "$template_file" > "$output_file"
-    fi
+    }
+    ' "$template_file" > "$output_file"
 }
 
 
@@ -159,8 +159,24 @@ disabled_printlastlog() {
     fi
 }
 
+# Reuse the parent installer's choice, or ask when installing this module separately.
+configure_nerd_fonts() {
+    case "${TUX_NERD_FONTS:-}" in
+        true|false) return 0 ;;
+    esac
+    if print_dialog "${SILENT:-no}" "Enable Nerd Font icons?" \
+        "Display enhanced icons using Nerd Fonts. A compatible Nerd Font must be installed and selected in your terminal for the icons to display correctly."; then
+        TUX_NERD_FONTS=true
+    else
+        TUX_NERD_FONTS=false
+    fi
+    export TUX_NERD_FONTS
+}
+
 main() {
     cd "$MODULE_DIR"
+
+    configure_nerd_fonts
 
     print_header "Module Motd installation\n"
 

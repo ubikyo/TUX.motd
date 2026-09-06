@@ -10,6 +10,8 @@ class Module:
         return None
 
     def get(self, key, default=None):
+        if (key == "icon" or key.startswith("icon.")) and not Configuration.get("nerd_fonts", True):
+            return ""
         keys = key.split('.')
         data = self.settings
         for k in keys:

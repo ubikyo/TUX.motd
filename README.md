@@ -8,7 +8,7 @@ Awesome MOTD for Ubuntu with system information and more.
 
 # Prerequisites
 
-TUX.motd uses optional glyphs (icons) to display some informations. To view these elements properly in your SSH terminal, you need to install a Nerd Font (such as Fira Code, DejaVuSans, etc.) on your local machine. Nerd Fonts are standard fonts that have been patched to include over 10,000 icons from Font Awesome, Material Design, and more.
+TUX uses optional Nerd Fonts to display enhanced icons and symbols. To view these elements properly in your SSH terminal, you need to install a [Nerd Font](https://www.nerdfonts.com/font-downloads) (such as [Fira Code](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/FiraCode.zip), [DejaVuSans](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/DejaVuSansMono.zip), etc.) on your local machine. Nerd Fonts are standard fonts that have been patched to include over 10,000 icons from Font Awesome, Material Design, and more.
 
 # Installation
 

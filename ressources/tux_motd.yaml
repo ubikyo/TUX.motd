@@ -1,4 +1,5 @@
 language: "en"
+nerd_fonts: true
 
 #theme:
 #  hostname: "green"
