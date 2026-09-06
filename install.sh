@@ -97,7 +97,7 @@ disabled_motd() {
         fi
 
         # Remove legal notice if exists
-        rm /etc/legal
+        rm -f /etc/legal
 
         # Suppress sudo message on first use
         touch ~/.sudo_as_admin_successful
