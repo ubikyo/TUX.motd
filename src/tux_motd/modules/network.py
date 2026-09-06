@@ -76,7 +76,7 @@ class Network(Module):
             if ifaces:
 
                 Display.header(
-                    f"{_n('Interface', 'Interfaces', len(ifaces)):22}"
+                    f"{_n('Interface', 'Interfaces', len(ifaces)):{Display.header_width(22, self.get('icon', '󱦂'))}}"
                     f"{_('Address'):44}"
                     f"{_('Status')}"
                 )
@@ -109,7 +109,7 @@ class Network(Module):
             all_routes = tri(ipv4_routes) + tri(ipv6_routes)
 
             Display.header(
-                f"{_n('Route' , 'Routes', len(all_routes)):22}" +
+                f"{_n('Route' , 'Routes', len(all_routes)):{Display.header_width(22, self.get('icon', '󱇢'))}}" +
                 f"{_('Gateway'):44}" +
                 col("Metric", len(f"Metric")) +
                 f"{_('Destination')}"

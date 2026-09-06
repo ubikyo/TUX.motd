@@ -20,7 +20,7 @@ class Service(Module):
         if services:
 
             Display.header(
-                f"{_n('Service', 'Services', len(services)):36}" +
+                f"{_n('Service', 'Services', len(services)):{Display.header_width(36, self.get('icon', '󰒔'))}}" +
                 col("Running?", len(f"Running?")) +
                 f"{_('Enabled?')}"
             )

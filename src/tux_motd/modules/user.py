@@ -73,7 +73,7 @@ class User(Module):
 
         if users:
             Display.header(
-                f"{_n('User', 'Users', len(users)):22}" +
+                f"{_n('User', 'Users', len(users)):{Display.header_width(22, self.get('icon', ''))}}" +
                 f"{_('From'):44}" +
                 col("Since", len(f"Since")) +
                 f"{_('At')}"

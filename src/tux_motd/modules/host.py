@@ -89,7 +89,7 @@ class Host(Module):
         upgradable = [line for line in result.stdout.splitlines() if "/" in line and not line.startswith("Listing")]
 
         Display.header(
-            f"{_n('Update', 'Updates', len(upgradable)):22}"
+            f"{_n('Update', 'Updates', len(upgradable)):{Display.header_width(22, self.get('icon', '󰏓'))}}"
             f"{_('Count')}"
         )
 

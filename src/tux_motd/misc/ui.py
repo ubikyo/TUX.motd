@@ -31,6 +31,11 @@ class Display:
     def icon_prefix(icon):
         return f"{icon}  " if icon else ""
 
+    @staticmethod
+    def header_width(width, icon):
+        """Match the first column to rows without an icon and its spacing."""
+        return width if icon else width - 3
+
     @classmethod
     def label(cls, icon, label, value, indent=0):
         """ 
