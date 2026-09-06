@@ -15,7 +15,7 @@ class Service(Module):
     def run(self):
         """ Affiche l"état de certaines services """
 
-        services = (self.get("check", {})).items()
+        services = (self.get("check") or {}).items()
 
         if services:
 
