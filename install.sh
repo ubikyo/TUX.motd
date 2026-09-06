@@ -89,7 +89,8 @@ link_module() {
 
 disabled_motd() {
     if [ -d "$MOTD_DIR" ]; then
-        if print_dialog $SILENT "Disable existing MOTD (like landscape)?"; then
+        if print_dialog "$SILENT" "Disable existing MOTD?" \
+            "Disables any existing system MOTD, such as Ubuntu Landscape messages, to prevent duplicate or unwanted information from being displayed alongside the custom MOTD."; then
             print_msg "OK" "MOTD" "Disabled all existing MOTD (/etc/update-motd.d/*)"
             chmod -x $MOTD_DIR/*
         else
@@ -124,7 +125,8 @@ EOF
 
 # Désactive l'affichage du dernier login
 disabled_printlastlog() {
-    if print_dialog $SILENT "Disable PrintLastLog in SSH config (requires script to restart SSH)?"; then
+    if print_dialog "$SILENT" "Disable PrintLastLog in SSH config?" \
+        "Disables the default SSH “Last login” message displayed after authentication, keeping the login output clean and leaving only the configured MOTD. Restarting the SSH service is required for the change to take effect."; then
 
         local ssh_config_file="/etc/ssh/sshd_config"
 
