@@ -26,24 +26,24 @@ modules:
             # font: "termius"
         - distro:
             # show: true
-            # icon: ""
+            icon: ""
         - uptime:
             # show: true
-            # icon: ""
+            icon: ""
 
   - processor:
       position: 2
       # show: true
-      # icon:
-      #   info : ""
-      #   graph : ""
+      icon:
+        info : ""
+        graph : ""
 
   - memory:
       position: 3
       # show: true
-      # icon:
-      #   info : ""
-      #   graph: ""
+      icon:
+        info : ""
+        graph: ""
       # treshold:
       #   warn: 70
       #   critical: 90
@@ -57,9 +57,9 @@ modules:
         - "/run/snapd"
         - "/System"
         - "/boot"
-      # icon:
-      #   info : ""
-      #   graph: ""
+      icon:
+        info : ""
+        graph: ""
       # treshold: 
       #   warn: 5
       #   critical: 10
@@ -67,7 +67,7 @@ modules:
   - service:
       position: 5
       # show: true
-      # icon: "󰒔"
+      icon: "󰒔"
       check:
         {services}
 
@@ -78,31 +78,32 @@ modules:
       # ipv6: false
       exclude:
         - "lo"
-      # interface:
-      #   show: true
-      #   icon: "󱦂"
-      # route:
-      #   show: true
-      #   icon: "󱇢"
-      # resolver:
-      #   show: true
-      #   icon: "󰖟"
-      # firewall:
-      #   show: true
-      #   icon: "󰕥"
+      content:
+        - interface:
+            # show: true
+            icon: "󱦂"
+        - route:
+            # show: true
+            icon: "󱇢"
+        - resolver:
+            # show: true
+            icon: "󰖟"
+        - firewall:
+            # show: true
+            icon: "󰕥"
 
   - user:
       position: 7
       # show: true
-      # icon: ""
+      icon: ""
 
   - host:
       position: 8
       # show: true
       content:
         - update:
-      #     show: true
-      #     icon: "󰏓"
+            # show: true
+            icon: "󰏓"
       # - banner:
       #     show: true
       #     message:
