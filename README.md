@@ -1,9 +1,10 @@
 # TUX.motd
 Awesome MOTD for Ubuntu with system information and more.
 
-> **Note:** Successfully tested on **Ubuntu 20** to **25+**.
+> [!NOTE]
+> Successfully tested on **Ubuntu 18** to **26+**.
 
-<img src="https://raw.githubusercontent.com/Ubikyo/TUX.motd/refs/heads/main/ressources/motd.png" width="400">
+<img src="https://raw.githubusercontent.com/ubikyo/TUX.motd/refs/heads/dev/ressources/motd.png" width="500">
 
 # Prerequisites
 
@@ -11,7 +12,7 @@ TUX.motd uses optional glyphs (icons) to display some informations. To view thes
 
 # Installation
 
-Use the [TUX installation](../../README.md) to install TUX.motd.
+Use the [TUX installation](https://github.com/ubikyo/TUX) to install TUX.motd.
 
 # Debug
 
@@ -30,7 +31,8 @@ Activate the virtual environment (VENV).
     source ./scripts/venv-activate.sh
     cd modules/tux_motd/src/tux_motd
 
-> **Note:** An interactive root session is required to access certain internal features.
+> [!WARNING]
+> An interactive root session is required to access certain internal features.
 
 ## Edit
 
@@ -71,7 +73,8 @@ The TUX.motd configuration can be found in the following file. All parameters ar
 
     language: "fr"
 
-> **Note:** Two languages are currently available: English (**en**) by default, and French (**fr**).
+> [!NOTE]
+> Two languages are currently available: English (**en**) by default, and French (**fr**).
 To add new languages, duplicate one of the existing language folders in the **i18n** directory and modify the **messages.po** file accordingly. Once your changes are complete, compile the file using the following command: **msgfmt -o messages.mo messages.po**
 
 ## Theme
@@ -84,7 +87,8 @@ To add new languages, duplicate one of the existing language folders in the **i1
         critical: "red"
         highlight: "yellow"
 
-> **Note:** The colors correspond to the colorama foreground values.
+> [!NOTE]
+> The colors correspond to the colorama foreground values.
 
 ## Bargraph
 
@@ -108,7 +112,8 @@ For each TUX.motb module, you can set the position and the display.
             position: 1
             show: true
 
-> **Note :** See the default configuration on **/etc/TUX/text.motd.yaml** for usage of the different modules.
+> [!NOTE]
+> See the default configuration on **/etc/TUX/text.motd.yaml** for usage of the different modules.
 
 ### Module Host
 
@@ -134,8 +139,11 @@ Or, alternatively, content by content with:
                     ...
                     your_username: "Hi!"
 
-> **Note 1 :** You can use any default Fyglet font name.
-> **Note 2 :** Each **content** support **show** parameter.
+> [!NOTE]
+> You can use any default Fyglet font name.
+
+> [!NOTE]
+> Each **content** support **show** parameter.
 
 ### Module Processor
 
@@ -210,7 +218,8 @@ Or, alternatively, content by content with:
             - firewall:
                 icon: "󰕥"
 
-> **Note :** Each **content** support **show** parameter.
+> [!NOTE]
+> Each **content** support **show** parameter.
 
 ### Module User
   
